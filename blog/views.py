@@ -16,7 +16,7 @@ def login_user(request):
     if request.method == "POST":
         email = request.POST['email']
         password = request.POST['password']
-        user = authenticate(request, email=email, password=password)
+        user = authenticate(email=email, password=password)
         if user is not None:
             login(request, user)
             return redirect('blog:post_list')

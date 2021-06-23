@@ -140,3 +140,5 @@ AUTHENTICATION_BACKENDS = [
     'blog.backends.EmailBackend',
     'django.contrib.auth.backends.ModelBackend'
     ]
+
+LOGIN_REDIRECT_URL = "/post_list"
