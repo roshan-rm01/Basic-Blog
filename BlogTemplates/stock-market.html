@@ -1,0 +1,77 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>About us - BasicBlog</title>
+    <link rel="stylesheet" href="{% static "css/bootstrap.min.css" %}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Abril+Fatface">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+    <link rel="stylesheet" href="{% static "css/Login-Form-Dark.css" %}">
+    <link rel="stylesheet" href="{% static "css/Navigation-with-Search.css" %}">
+    <link rel="stylesheet" href="{% static "css/Pretty-Search-Form.css" %}">
+</head>
+
+<body>
+    <nav class="navbar navbar-light navbar-expand-lg fixed-top" id="mainNav">
+        <div class="container-fluid"><a class="navbar-brand" href="{% url "blog:home" %}">BasicBlog</a><button data-bs-toggle="collapse" data-bs-target="#navbarResponsive" class="navbar-toggler" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><i class="fa fa-bars"></i></button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="{% url "blog:home" %}">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url "blog:about" %}">About ME</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url "blog:post_list" %}">Blog Post</a></li>
+                    <li class="nav-item">
+                        {% if request.user.is_authenticated %}
+                            <a class="nav-link" href="{% url "blog:add_post" %}">Add Post</a>
+                        {% else %}
+                            <a class="nav-link" href="{% url "blog:login" %}">Login</a>
+                        {% endif %}
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <header class="masthead" style="background: url(&quot;../static/img/economy.jpg&quot;) left;">
+        <div class="overlay"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-10 col-lg-8 mx-auto position-relative">
+                    <div class="site-heading">
+                        <h1>Stock Market Simulator</h1><span class="subheading">Programmed using Java</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-10 col-lg-8 mx-auto">
+                <p><strong>The stock market</strong> simulator allows the user to buy or sell any stock, commodity, cryptocurrency or currency. A graphical user interface is used to visually show the user all the data relating with the financial instrument they want to buy and a number of other options. One such option would be to see there portfolio of financial securities while another option would show the latest headlines regarding the stock market. The user can also save there progress and import there data in a later session.</p>
+                <p><strong>To get real-time</strong> stock market data, I used the Twelve data API and CNBC API. The Twelve data API was used to get the current stock, currency and cryptocurrency prices while the CNBC API was used to get the latest headlines and company information. For the commodity data I developed a simple python script to download the latest commodity prices from Yahoo Finance and save it in a specific location. I then used Java to read the file and extract the information.&nbsp;</p>
+                <p><strong>Java Swing was</strong> mainly used to create the GUI but in the future the simulation will eventually use JavaFX as the main interface. The stock market simulation has 4 main options, trading, portfolio, headlines and quit simulation. For the trading option the user can choose to either buy or sell a security and the market price would be displayed. Other options like portfolio allows the user to browse through there securities, view there transactions and look at there gains and losses. The headlines option will display the latest news headlines and relevant information for a company or country.</p>
+            </div>
+        </div>
+    </div>
+    <hr>
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-10 col-lg-8 mx-auto">
+                    <ul class="list-inline text-center">
+                        <li class="list-inline-item"><span class="fa-stack fa-lg"><a href="https://github.com/roshan-rm01">k<i class="fa fa-circle fa-stack-2x"></i><i class="fa fa-github fa-stack-1x fa-inverse"></i></a></span></li>
+                    </ul>
+                    <p class="text-muted copyright">Copyright&nbsp;©&nbsp;BasicBlog 2021</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../static/js/clean-blog.js"></script>
+</body>
+
+</html>

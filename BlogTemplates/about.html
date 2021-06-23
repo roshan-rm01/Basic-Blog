@@ -1,0 +1,77 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>About us - BasicBlog</title>
+    <link rel="stylesheet" href="{% static "css/bootstrap.min.css" %}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Abril+Fatface">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+    <link rel="stylesheet" href="{% static "css/Login-Form-Dark.css" %}">
+    <link rel="stylesheet" href="{% static "css/Navigation-with-Search.css" %}">
+    <link rel="stylesheet" href="{% static "css/Pretty-Search-Form.css" %}">
+</head>
+
+<body>
+    <nav class="navbar navbar-light navbar-expand-lg fixed-top" id="mainNav">
+        <div class="container-fluid"><a class="navbar-brand" href="{% url "blog:home" %}">BasicBlog</a><button data-bs-toggle="collapse" data-bs-target="#navbarResponsive" class="navbar-toggler" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><i class="fa fa-bars"></i></button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="{% url "blog:home" %}">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url "blog:about" %}">About Me</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url "blog:post_list" %}">Blog Post</a></li>
+                    <li class="nav-item">
+                        {% if request.user.is_authenticated %}
+                            <a class="nav-link" href="{% url "blog:add_post" %}">Add Post</a>
+                        {% else %}
+                            <a class="nav-link" href="{% url "blog:login" %}">Login</a>
+                        {% endif %}
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <header class="masthead" style="background: url(&quot;../static/img/clock.jpg&quot;) center;">
+        <div class="overlay"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-10 col-lg-8 mx-auto position-relative">
+                    <div class="site-heading">
+                        <h1>About Me</h1><span class="subheading">By roshan-rm01</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-10 col-lg-8 mx-auto">
+                <p><strong>I am currently </strong>a Computer Science student at Queen Mary, University of London in the UK. My studies consist of learning cryptographic algorithms such as the hash algorithm in Java, programming in assembly language and learning about the computer architecture. I also have a Chartered Institute of Securities and Investments qualification.</p>
+                <p><strong>My most proficient</strong> programming languages are Python and Java while I am also proficient in Django web development (Back-end). Other programming languages I am familiar with are HTML/CSS, PHP, SQL and JavaScript.</p>
+                <p><strong>For my projects</strong>, I developed a <a href="{% url "blog:monte_carlo" %}">Monte Carlo Simulation</a> to model the pricing of a call option using Python and I also developed an <a href="{% url "blog:automation" %}">Automation Tool</a> for MS Excel. In Java, I developed a <a href="{% url "blog:stock_market" %}">Stock Market Simulator</a> and a word search solver. My web projects consists of developing a simple investor-start-up match maker, an eCommerce site and a simple social image sharing site.</p>
+            </div>
+        </div>
+    </div>
+    <hr>
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-10 col-lg-8 mx-auto">
+                    <ul class="list-inline text-center">
+                        <li class="list-inline-item"><span class="fa-stack fa-lg"><a href="https://github.com/roshan-rm01">k<i class="fa fa-circle fa-stack-2x"></i><i class="fa fa-github fa-stack-1x fa-inverse"></i></a></span></li>
+                    </ul>
+                    <p class="text-muted copyright">Copyright&nbsp;©&nbsp;BasicBlog 2021</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../static/js/clean-blog.js"></script>
+</body>
+
+</html>
